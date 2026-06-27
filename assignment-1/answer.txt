@@ -1,0 +1,411 @@
+Task-----1 ///////
+import java.io.*;
+ 
+ public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+ 
+ 
+ 
+int t=Integer.parseInt(br.readLine());
+ 
+while(t-->0){
+ 
+int n = Integer.parseInt(br.readLine());
+ 
+        if(n % 2 == 0){
+            System.out.println(n+" is an Even number.");
+        }else{
+            System.out.println(n+" is an Odd number.");
+        }
+}
+ 
+        br.close();
+    }
+}
+
+
+
+Task------2 ////////
+import java.io.*;
+ import java.util.StringTokenizer;
+ 
+public class Main {
+ 
+    public static void main(String[] args) throws IOException {
+ 
+        BufferedReader br =
+                new BufferedReader(new InputStreamReader(System.in));
+ 
+        int t = Integer.parseInt(br.readLine());
+ 
+        while (t-- > 0) {
+            
+             StringTokenizer st =
+                new StringTokenizer(br.readLine());
+            String command = st.nextToken();
+            long a = Long.parseLong(st.nextToken());
+ 
+        String op = st.nextToken();
+ 
+        long b = Long.parseLong(st.nextToken());
+            
+            if(op.equals("+")){System.out.println(a+b);}
+            else if(op.equals("-")){System.out.println(a-b);}
+            else if(op.equals("*")){System.out.println(a*b);}
+            else if(op.equals("/")){  System.out.printf("%.10f\n", (double)a / b);}
+             else if(op.equals("%")){System.out.println(a%b);}
+              else if(op.equals("&")){System.out.println(a&b);}
+               else if(op.equals("|")){System.out.println(a|b);}
+             else if(op.equals("^")){System.out.println(a^b);}
+            else if(op.equals("<<")){System.out.println(a<<b);}
+             else if(op.equals(">>")){System.out.println(a>>b);}
+            
+      
+        }
+ 
+        br.close();
+    }
+}
+
+
+Task-------3///
+import java.io.*;
+ 
+ public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+ 
+ 
+ 
+int t=Integer.parseInt(br.readLine());
+ 
+while(t-->0){
+ 
+long n = Long.parseLong(br.readLine());
+ long sum=((n+1)*n)/2;
+ System.out.println(sum);
+        
+}
+ 
+        br.close();
+    }
+}
+
+Task-------4/////
+import java.io.*;
+ 
+ public class Main {
+    public static void main(String[] args) throws IOException {
+       BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+ 
+ 
+ 
+int t=Integer.parseInt(br.readLine());
+ 
+while(t-->0){
+  int N = Integer.parseInt(br.readLine());
+ 
+           
+         String[] input = br.readLine().split(" ");
+ 
+    int[] arr = new int[N];
+ 
+            for (int i = 0; i < N; i++) {
+                arr[i] = Integer.parseInt(input[i]);
+            }
+            
+            boolean flag=true;
+            for(int i=1;i<N;i++){
+                if(arr[i]<arr[i-1]){
+                    flag=false;
+                    break;
+                }
+            }
+            
+            if(flag){System.out.println("YES");}
+            else{System.out.println("NO");}
+            
+            
+            
+       
+}
+ 
+        br.close();
+    }
+}
+
+
+Task--------5////
+import java.io.*;
+import java.util.ArrayList;
+ 
+public class Main{
+public static void main(String[] args) throws IOException{
+     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+ 
+        int N= Integer.parseInt(br.readLine().trim());
+ 
+      String[] input= br.readLine().split(" ");
+       int[] arr= new int[N];
+ 
+ for(int a=0;a<N;a++){
+            arr[a] = Integer.parseInt(input[a]);
+    }
+ 
+ArrayList<int[]> moves = new ArrayList<>(); 
+ 
+    int i = 0;
+       int j = i + 2;
+         boolean flag = true;
+ 
+ 
+ 
+while(j<N){
+ 
+     if(arr[j] < arr[i]){
+          int temp= arr[j];
+              arr[j]=arr[i];
+             arr[i]=temp;
+                moves.add(new int[]{i + 1, j + 1});
+                i=0;
+                j=2;
+            } else {
+                i++;
+                j=i+2;
+            }
+            
+            
+            
+            
+                if (moves.size()>(N*N/4)) {
+                flag = false;
+                break;
+     }
+            
+            
+            }
+            
+            
+            
+            
+            for(int a=1;a<N;a++){
+                if(arr[a]<arr[a-1]){
+                    flag=false;
+                    break;
+                }
+            }
+            
+            
+            
+            
+ 
+        if(flag){
+            System.out.println("YES");
+           System.out.println(moves.size());
+            for (int a=0;a<moves.size();a++) {
+                System.out.println(moves.get(a)[0]+" "+moves.get(a)[1]);
+            }
+       
+       
+       
+        } else {
+            System.out.println("NO");
+      }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+        br.close();
+    }
+}
+
+//Task------6//////
+
+import java.io.*;
+import java.util.ArrayList;
+ 
+public class Main{
+public static void main(String[] args) throws IOException{
+     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+ 
+        int N= Integer.parseInt(br.readLine().trim());
+ 
+      String[] input= br.readLine().split(" ");
+       int[] arr= new int[N];
+ 
+ for(int a=0;a<N;a++){
+            arr[a] = Integer.parseInt(input[a]);
+    }
+ 
+ boolean swaped=true;
+ 
+ 
+ while(swaped){
+     swaped=false;
+for(int a=1;a<N;a++){
+    if(arr[a]<arr[a-1] && arr[a]%2==arr[a-1]%2){
+        int temp=arr[a];
+        arr[a]=arr[a-1];
+        arr[a-1]=temp;
+        swaped=true;
+        
+    }
+}
+ 
+}
+ 
+ 
+ for(int i=0;i<N;i++){
+     System.out.print(arr[i]+" ");
+ }
+ 
+ 
+ 
+ 
+        br.close();
+    }
+}
+
+
+//Task---------7/////
+import java.io.*;
+ 
+ public class Main {
+    public static void main(String[] args) throws IOException {
+       BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+ 
+ 
+ 
+int t=Integer.parseInt(br.readLine());
+ 
+while(t-->0){
+  int N = Integer.parseInt(br.readLine());
+ 
+           
+         String[] input = br.readLine().split(" ");
+ 
+    int[] arr = new int[N];
+ 
+            for (int i = 0; i < N; i++) {
+                arr[i] = Integer.parseInt(input[i]);
+            }
+       String[] input2 = br.readLine().split(" ");      
+     int[] arr2 = new int[N];
+ 
+            for (int i = 0; i < N; i++) {
+                arr2[i] = Integer.parseInt(input2[i]);
+            }
+            
+           int counter=0; 
+ 
+    
+   for(int i=0;i<N-1;i++){
+      
+      int best=i;
+      
+       for(int j=i+1;j<N;j++){
+       
+       if (arr2[j] > arr2[best]) {
+                        best = j;
+                    } 
+                    else if (arr2[j] == arr2[best]) {
+                        if (arr[j] < arr[best]) {
+                            best = j;
+                        }
+                    }
+       }
+       
+       
+       
+     if (best != i) {
+                    int temp = arr[i];
+                    arr[i] = arr[best];
+                    arr[best] = temp;
+                    
+                    int temp2 = arr2[i];
+                    arr2[i] = arr2[best];
+                    arr2[best] = temp2;
+                    
+                    counter++;
+                }  
+       
+       
+       
+       
+       
+       
+       
+       
+     
+   }
+ 
+ System.out.println("Minimum swaps: "+(counter));
+            
+ for(int i=0;i<N;i++){
+     System.out.println("ID: "+arr[i]+" Mark: "+arr2[i]);
+     
+ }   
+    
+}
+ 
+      
+            
+            
+            
+            
+          
+ 
+ 
+        br.close();
+    }
+}
+
+//Task---------8/////
+import java.io.*;
+ import java.util.*;
+ public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+ 
+ 
+ 
+int t=Integer.parseInt(br.readLine());
+ String[] arr = new String[t];
+ 
+       for (int i = 0; i < t; i++) {
+            String line = br.readLine();
+        
+                arr[i] = line.trim();
+            
+        }
+        
+      Arrays.sort(arr,(a, b) -> {
+ 
+      String[] x=a.split(" ");
+    String[] y=b.split(" ");
+ 
+int c=x[0].compareTo(y[0]);
+ 
+    if (c!=0) return c;
+ 
+return y[y.length-1].compareTo(x[x.length-1]);
+});
+ 
+ 
+for (int i=0;i<t;i++) {
+            System.out.println(arr[i]);
+        }
+        br.close();
+    }
+}
+
+
+
+
+
+
