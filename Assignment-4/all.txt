@@ -1,0 +1,465 @@
+TASK - 1
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.StringTokenizer;
+ 
+public class Main{
+   public static void main(String []args) throws IOException{
+ BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        PrintWriter out= new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+ StringTokenizer st = new StringTokenizer(br.readLine());
+ 
+ int n=Integer.parseInt(st.nextToken());
+int m=Integer.parseInt(st.nextToken());
+int[][]arr=new int[n][n];
+ 
+for(int i=0;i<m;i++){
+ StringTokenizer st1 = new StringTokenizer(br.readLine());
+   arr[Integer.parseInt(st1.nextToken())-1][Integer.parseInt(st1.nextToken())-1]=Integer.parseInt(st1.nextToken());
+}
+ 
+for (int i = 0; i < arr.length; i++) {
+    for (int j = 0; j < arr[i].length; j++) {
+        out.print(arr[i][j] + " ");
+    }
+    out.println();
+}
+ 
+ 
+ 
+out.flush();
+   }
+}
+
+
+Task - 2 
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.StringTokenizer;
+ 
+public class Main{
+public static void main(String[] args) throws IOException{
+    
+BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        PrintWriter out= new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+ StringTokenizer st = new StringTokenizer(br.readLine());
+  int n=Integer.parseInt(st.nextToken());
+int m=Integer.parseInt(st.nextToken());
+ 
+ 
+ArrayList<int[]>[] graph = new ArrayList[n];
+ 
+for (int i = 0; i < n; i++) {
+    graph[i] = new ArrayList<>();
+}
+int arr1[]=new int[m];
+int arr2[]=new int[m];
+int arr3[]=new int[m];
+StringTokenizer st1 = new StringTokenizer(br.readLine());
+for(int i=0; i<m;i++){
+    
+arr1[i]=Integer.parseInt(st1.nextToken());
+}
+ StringTokenizer st2 = new StringTokenizer(br.readLine());
+for(int i=0; i<m;i++){
+   
+arr2[i]=Integer.parseInt(st2.nextToken());
+}
+ StringTokenizer st3= new StringTokenizer(br.readLine());
+for(int i=0; i<m;i++){
+arr3[i]=Integer.parseInt(st3.nextToken());
+}
+ 
+ 
+for(int i=0;i<m;i++){
+    graph[arr1[i]-1].add(new int[]{arr2[i], arr3[i]});
+ 
+}
+ 
+ 
+ 
+for (int i = 0; i < graph.length; i++) {
+    out.print((i+1)+ ": ");
+ 
+    for(int j=0;j<graph[i].size();j++){
+        out.print("("+graph[i].get(j)[0]+","+graph[i].get(j)[1]+") ");
+    }
+ 
+out.println();
+}
+ 
+ 
+ 
+ 
+out.flush();
+}
+ 
+ 
+ 
+ 
+ 
+}
+
+
+Task - 3
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.StringTokenizer;
+ 
+public class Main{
+   public static void main(String []args) throws IOException{
+ BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        PrintWriter out= new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+ 
+ 
+ int n=Integer.parseInt(br.readLine());
+ 
+int[][]arr=new int[n][n];
+ 
+for(int i=0;i<n;i++){
+ StringTokenizer st = new StringTokenizer(br.readLine());
+   
+    int k = Integer.parseInt(st.nextToken());
+ 
+    for (int j = 0; j < k; j++) {
+        int v = Integer.parseInt(st.nextToken());
+        arr[i][v] = 1;
+    }
+}
+ 
+for (int i = 0; i < arr.length; i++) {
+    for (int j = 0; j < arr[i].length; j++) {
+        out.print(arr[i][j] + " ");
+    }
+    out.println();
+}
+ 
+ 
+ 
+out.flush();
+   }
+}
+
+Task - 4
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.StringTokenizer;
+ 
+public class Main{
+ 
+   public static void main(String []args) throws IOException{
+ BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        PrintWriter out= new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+ 
+ StringTokenizer st = new StringTokenizer(br.readLine());
+ int n=Integer.parseInt(st.nextToken());
+int m=Integer.parseInt(st.nextToken());
+int[] arr1=new int[m];
+ int[] arr2=new int[m];
+int[] degree = new int[n + 1];
+ 
+ 
+ 
+ StringTokenizer st1 = new StringTokenizer(br.readLine());
+for(int i=0;i<m;i++){
+    arr1[i]=Integer.parseInt(st1.nextToken());
+ 
+    
+}
+ 
+ StringTokenizer st2 = new StringTokenizer(br.readLine());
+for(int i=0;i<m;i++){
+    arr2[i]=Integer.parseInt(st2.nextToken());
+      degree[arr1[i]]++;
+    degree[arr2[i]]++;
+}
+ 
+ 
+int odd = 0;
+ 
+for (int i = 1; i <= n; i++) {
+    if (degree[i] % 2 != 0) {
+        odd++;
+    }
+}
+ 
+ 
+if (odd == 0 || odd == 2) {
+    out.println("YES");
+} else {
+    out.println("NO");
+}
+ 
+ 
+out.flush();
+   }
+}
+
+Task - 5 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.StringTokenizer;
+ 
+public class Main{
+ 
+   public static void main(String []args) throws IOException{
+ BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        PrintWriter out= new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+ 
+ StringTokenizer st = new StringTokenizer(br.readLine());
+ int n=Integer.parseInt(st.nextToken());
+int m=Integer.parseInt(st.nextToken());
+int[] arr1=new int[m];
+ int[] arr2=new int[m];
+ 
+ 
+ 
+ 
+ StringTokenizer st1 = new StringTokenizer(br.readLine());
+for(int i=0;i<m;i++){
+    arr1[i]=Integer.parseInt(st1.nextToken());
+ 
+    
+}
+ 
+ StringTokenizer st2 = new StringTokenizer(br.readLine());
+for(int i=0;i<m;i++){
+    arr2[i]=Integer.parseInt(st2.nextToken());
+  
+}
+ 
+ 
+int in[]=new int[n];
+int o[]=new int[n];
+ 
+ 
+ 
+for(int i=0;i<m;i++){
+    o[arr1[i]-1]++;
+    in[arr2[i]-1]++;
+  
+}
+ 
+ 
+ 
+ 
+ 
+ 
+for(int i=0;i<n;i++){
+    out.print((in[i]-o[i])+" ");
+}
+ 
+ 
+ 
+out.flush();
+   }
+}
+
+Task - 6
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.StringTokenizer;
+ 
+public class Main{
+    public static void main(String[]args) throws IOException{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        PrintWriter out= new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+ int n=Integer.parseInt(br.readLine());
+ StringTokenizer st = new StringTokenizer(br.readLine());
+ int l=Integer.parseInt(st.nextToken());
+int k=Integer.parseInt(st.nextToken());
+int[] dx = {-1, -1, -1, 0, 0, 1, 1, 1};
+        int[] dy = {-1, 0, 1, -1, 1, -1, 0, 1};
+ int count=0;
+    for (int i = 0; i < 8; i++) {
+            int x = l + dx[i];
+            int y = k + dy[i];
+ 
+            if (x>=1 && x<=n && y>=1 && y<=n) {
+                count++;
+            }
+        }
+ 
+        out.println(count);
+ 
+ 
+        for (int i = 0; i < 8; i++) {
+            int nx=l+dx[i];
+            int ny=k+dy[i];
+ 
+            if (nx>=1 && nx<=n && ny>=1 && ny<=n) {
+                out.println(nx + " " + ny);
+            }
+        }
+ 
+        out.flush();
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+    }
+}
+
+Task - 7
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.StringTokenizer;
+ 
+public class Main{
+    public static void main(String[] args) throws IOException {
+ 
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+ 
+        StringTokenizer st=new StringTokenizer(br.readLine());
+ 
+        int n=Integer.parseInt(st.nextToken());
+        int m=Integer.parseInt(st.nextToken());
+        int k=Integer.parseInt(st.nextToken());
+ 
+        boolean[][] board=new boolean[n + 1][m + 1];
+ 
+        int[] x=new int[k];
+        int[] y=new int[k];
+ 
+        for(int i=0;i<k;i++) {
+            st=new StringTokenizer(br.readLine());
+            x[i] = Integer.parseInt(st.nextToken());
+            y[i] = Integer.parseInt(st.nextToken());
+ 
+            board[x[i]][y[i]] = true;
+        }
+ 
+        int[] dx={-2, -2, -1, -1, 1, 1, 2, 2};
+        int[] dy={-1, 1, -2, 2, -2, 2, -1, 1};
+ 
+        for (int i=0;i<k; i++) {
+ 
+            for (int j = 0; j < 8; j++) {
+ 
+                int nx = x[i] + dx[j];
+                int ny = y[i] + dy[j];
+ 
+                if (nx>=1 && nx<=n && ny >= 1 && ny <= m) {
+ 
+                    if (board[nx][ny]) {
+                        out.println("YES");
+                        out.flush();
+                        return;
+                    }
+                }
+            }
+        }
+ 
+        out.println("NO");
+        out.flush();
+    }
+}
+
+Task - 8
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.StringTokenizer;
+ 
+public class Main{
+    public static void main(String []args) throws IOException{
+ BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        PrintWriter out= new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+ StringTokenizer st1 = new StringTokenizer(br.readLine());
+ 
+int n = Integer.parseInt(st1.nextToken());
+int m = Integer.parseInt(st1.nextToken());
+       
+ArrayList<Integer>[] graph = new ArrayList[(int)n + 1];
+ 
+for (int i = 1; i <= n; i++) {
+    graph[i] = new ArrayList<>();
+}
+ 
+  for(int i=1;i<=n;i++) {
+    for(int j=1;j<=n;j++) {
+        if (i !=j && g(i, j) == 1) {
+            graph[i].add(j);
+        }
+    }
+}
+ 
+while(m-->0){
+ StringTokenizer st = new StringTokenizer(br.readLine());
+ int a= Integer.parseInt(st.nextToken());
+int b=Integer.parseInt(st.nextToken());
+       
+ 
+ if (graph[a].size() < b) {
+                out.println(-1);
+            } else {
+                out.println(graph[a].get(b - 1));
+            }
+ 
+ 
+}
+ 
+ 
+ 
+ 
+ 
+out.flush();
+ 
+    }
+ 
+ 
+ 
+ 
+ 
+ 
+static int g(int a, int b){
+    while (b != 0) {
+        int temp = a % b;
+        a = b;
+        b = temp;
+    }
+    return a;
+}
+ 
+ 
+ 
+}
